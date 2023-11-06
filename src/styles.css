@@ -2,10 +2,7 @@ body {
     background-color: blueviolet;
 }
 
-li {
-    text-decoration: none;
-    list-style-type: none;
-}
+
 
 .weather-app-data {
     background-color: white;
