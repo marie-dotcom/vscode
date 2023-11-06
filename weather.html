@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WEATHER APP</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <div class="weather-app-data">
@@ -37,28 +37,25 @@
             </div>
           </div>
         </form>
-        
+        <div>
         <h1
-          class="weather-app-city" id="city"> NSW, Australia
+          class="weather-app-city" id="city"> 
         </h1>
-        <ul>
-          <li>
+           <p class= "weather-app-details">
             Wednesday 22:00
-          </li>
-          <li>
-            Partly Cloudy
-          </li>
-        </ul>
+            <span id="description"> Partly cloudy</span>
+            </p>
+        </div>
         <div class="row">
           <div class="col-6">
             <div class="clearfix">
               <img
                 src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
                 alt="Cloudy icon"
-                class="weather-icon float-left"
+                class="weather-icon float-right"
               />
-              <div class="float-left">
-                <span class="temperature">19</span
+              <div class="float-right">
+                <span class="weather-app-temperature" id="temperature"></span
                 ><span class="units">°C | <a href="#">°F</a></span>
               </div>
             </div>
