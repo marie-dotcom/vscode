@@ -8,7 +8,6 @@ function updateWeather(response) {
     let timeElement = document.querySelector("#time");
     let date = new Date(response.data.time * 1000);
     let iconElement = document.querySelector("#icon");
-
     
     humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
     windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
@@ -17,7 +16,7 @@ function updateWeather(response) {
      
     descriptionElement.innerHTML = response.data.condition.description
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
-     
+
 }
 
 function formatDate(date) {
@@ -41,7 +40,6 @@ function formatDate(date) {
     return `${day} ${hours}:${minutes}`;
   }
 
-
 function searchCity(city) {
     let apiKey = "50aa2d0btf45222b4cf0o24817cb2311";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -56,7 +54,34 @@ function handleSearchSubmit(event) {
     searchCity(searchInput.value)
 }
 
+function displayForecast() {
+  
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
 
-let searchFormElement = document.querySelector("#search-form")
-searchFormElement.addEventListener("submit", handleSearchSubmit)
+  days.forEach(function (day) {
+    forecastHtml = 
+    forecastHtml +
+      `
+      <div class="weather-forecast-day">
+        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-icon">🌤️</div>
+        <div class="weather-forecast-temperatures">
+          <div class="weather-forecast-temperature">
+            <strong>15º</strong>
+          </div>
+          <div class="weather-forecast-temperature">9º</div>
+        </div>
+      </div>
+    `;
+  });
 
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Nairobi");
+displayForecast();
